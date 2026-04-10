@@ -77,7 +77,7 @@ public class main {
         }
     }
 
-    // тут у нас банкомат
+    // тут у нас банкоматт
     static void atm(LinkedList<BankAcc> list, Stack<String> stack, Scanner sc) {
 
         System.out.println("1-Снять 2-Баланс");
