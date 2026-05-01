@@ -7,10 +7,9 @@ public class main {
         Scanner sc = new Scanner(System.in);
 
         LinkedList<BankAcc> list = new LinkedList<>();
-        Stack<String> stack = new Stack<>();
+        MyStack stack = new MyStack(100);
         Queue<String> queue = new LinkedList<>();
 
-        // аккаунты
         list.add(new BankAcc("Abil", 1000));
         list.add(new BankAcc("Ahmed", 2000));
         list.add(new BankAcc("Sara", 1500));
@@ -29,8 +28,7 @@ public class main {
         } while (c != 4);
     }
 
-    // тут крч банк
-    static void bank(LinkedList<BankAcc> list, Stack<String> stack, Queue<String> queue, Scanner sc) {
+    static void bank(LinkedList<BankAcc> list, MyStack stack, Queue<String> queue, Scanner sc) {
 
         System.out.println("1-Пополнить 2-Снять 3-Баланс");
         int c = sc.nextInt();
@@ -53,7 +51,7 @@ public class main {
             if (x > 0) {
                 acc.balance += x;
                 stack.push("Пополнение: " + name + " +" + x);
-                queue.offer("Запрос на пополнение от: " + name);
+                queue.offer("Запрос на пополнение: " + name);
                 System.out.println("Готово");
             }
         }
@@ -64,11 +62,11 @@ public class main {
 
             if (x <= acc.balance) {
                 acc.balance -= x;
-                stack.push("Вывод: " + name + " -" + x);
-                queue.offer("Запрос на вывод от: " + name);
-                System.out.println("Все готово мабой");
+                stack.push("Снятие: " + name + " -" + x);
+                queue.offer("Запрос на снятие: " + name);
+                System.out.println("Готово");
             } else {
-                System.out.println("Недостаточно мани, иди зарабатывай мани-мани");
+                System.out.println("Недостаточно денег");
             }
         }
 
@@ -77,8 +75,7 @@ public class main {
         }
     }
 
-    // тут у нас банкоматт
-    static void atm(LinkedList<BankAcc> list, Stack<String> stack, Scanner sc) {
+    static void atm(LinkedList<BankAcc> list, MyStack stack, Scanner sc) {
 
         System.out.println("1-Снять 2-Баланс");
         int c = sc.nextInt();
@@ -100,10 +97,10 @@ public class main {
 
             if (x <= acc.balance) {
                 acc.balance -= x;
-                stack.push("Снятие у банкомата: " + name + " -" + x);
+                stack.push("Снятие Банкомат: " + name + " -" + x);
                 System.out.println("Выдано");
             } else {
-                System.out.println("Недостаточно мани, иди зарабатывай мани-мани");
+                System.out.println("Недостаточно денег");
             }
         }
 
@@ -112,8 +109,7 @@ public class main {
         }
     }
 
-    // тут у нас админ панель
-    static void admin(LinkedList<BankAcc> list, Stack<String> stack, Queue<String> queue) {
+    static void admin(LinkedList<BankAcc> list, MyStack stack, Queue<String> queue) {
 
         System.out.println("\n=== АККАУНТЫ ===");
         for (BankAcc a : list) {
@@ -125,13 +121,17 @@ public class main {
             System.out.println(stack.peek());
         }
 
+        System.out.println("\nУдалить последнюю операцию из истории?");
+        if (!stack.isEmpty()) {
+            System.out.println("Удалено: " + stack.pop());
+        }
+
         System.out.println("\nОчередь операций:");
         if (!queue.isEmpty()) {
-            System.out.println(queue.poll()); // FIFO
+            System.out.println(queue.poll());
         }
     }
 
-    // тут у нас поиск
     static BankAcc find(LinkedList<BankAcc> list, String name) {
         for (BankAcc a : list) {
             if (a.name.equalsIgnoreCase(name)) return a;
