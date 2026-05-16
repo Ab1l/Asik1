@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ADS.iml" filepath="$PROJECT_DIR$/ADS.iml" />
       <module fileurl="file://$PROJECT_DIR$/ASIK3/ASIK3.iml" filepath="$PROJECT_DIR$/ASIK3/ASIK3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ASIK4/ASIK4.iml" filepath="$PROJECT_DIR$/ASIK4/ASIK4.iml" />
       <module fileurl="file://$PROJECT_DIR$/Asik2/Asik2.iml" filepath="$PROJECT_DIR$/Asik2/Asik2.iml" />
       <module fileurl="file://$PROJECT_DIR$/task10/task10.iml" filepath="$PROJECT_DIR$/task10/task10.iml" />
       <module fileurl="file://$PROJECT_DIR$/task2/task2.iml" filepath="$PROJECT_DIR$/task2/task2.iml" />
