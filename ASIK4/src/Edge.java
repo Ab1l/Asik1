@@ -1,43 +1,20 @@
-/**
- * Represents a directed edge (connection) between two vertices in the graph.
- */
 public class Edge {
-
     private Vertex source;
     private Vertex destination;
+    private int weight;
 
-    /**
-     * Constructor to create an edge from source to destination.
-     * @param source      the starting vertex
-     * @param destination the ending vertex
-     */
-    public Edge(Vertex source, Vertex destination) {
+    public Edge(Vertex source, Vertex destination, int weight) {
         this.source = source;
         this.destination = destination;
+        this.weight = weight;
     }
 
-    /**
-     * Returns the source (starting) vertex of this edge.
-     * @return source vertex
-     */
-    public Vertex getSource() {
-        return source;
-    }
+    public Vertex getSource() { return source; }
+    public Vertex getDestination() { return destination; }
+    public int getWeight() { return weight; }
 
-    /**
-     * Returns the destination (ending) vertex of this edge.
-     * @return destination vertex
-     */
-    public Vertex getDestination() {
-        return destination;
-    }
-
-    /**
-     * Returns a string representation of the edge.
-     * @return string in format "Edge(source -> destination)"
-     */
     @Override
     public String toString() {
-        return "Edge(" + source + " -> " + destination + ")";
+        return source + " -> " + destination + " (w=" + weight + ")";
     }
 }
